@@ -10,7 +10,7 @@ namespace Primer_Parcial.DAL.Scripts
 {
     public class Contexto : DbContext
     {
-        public DbSet<Registros> registrosbl { get; set; }
+        public DbSet<Vendedor> vendedorbl { get; set; }
 
         public Contexto() : base("ConStr")
         {
