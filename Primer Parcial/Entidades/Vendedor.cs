@@ -16,6 +16,7 @@ namespace Primer_Parcial.Entidades
         public decimal Restecionp { get; set; }
         public decimal Sueldo { get; set; }
         public string Nombre { get; set; }
+        public DateTime FechaVendedor { get; set; }
       
 
         public Vendedor()
@@ -24,6 +25,7 @@ namespace Primer_Parcial.Entidades
             Restencion = 0;
             Sueldo = 0;
             Nombre = string.Empty;
+            FechaVendedor = DateTime.Now.Date;
         }
     }
 }

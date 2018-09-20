@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -87,6 +88,20 @@ namespace Primer_Parcial.BLL
                 throw;
             }
             return vendedor;
+        }
+        public static List<Vendedor> GetList(Expression<Func<Vendedor, bool>> expression)
+        {
+            List<Vendedor> Vendedor = new List<Vendedor>();
+            Contexto contexto = new Contexto();
+            try
+            {
+                Vendedor = contexto.vendedorbl.Where(expression).ToList();
+                contexto.Dispose();
+            }catch(Exception)
+            {
+                throw;
+            }
+            return Vendedor;
         }
 
     }

@@ -26,6 +26,7 @@ namespace Primer_Parcial.UI
             SueldonumericUpDown.Value = 0;
             RetencionnumericUpDown.Value = 0;
             RetecnumericUpDown.Value = 0;
+            FechadateTimePicker.Value = DateTime.Now;
             errorProvider.Clear();
         }
         private void Nuevobutton_Click(object sender, EventArgs e)
@@ -42,6 +43,7 @@ namespace Primer_Parcial.UI
             vendedor.Sueldo = Convert.ToDecimal(SueldonumericUpDown.Value);
             vendedor.Restencion = Convert.ToDecimal(RetencionnumericUpDown.Value);
             vendedor.Restencion = Convert.ToDecimal(RetecnumericUpDown.Value);
+            vendedor.FechaVendedor = FechadateTimePicker.Value;
             return vendedor;
         }
 
@@ -52,6 +54,7 @@ namespace Primer_Parcial.UI
             SueldonumericUpDown.Value = vendedor.Sueldo;
             RetencionnumericUpDown.Value = vendedor.Restencion;
             RetecnumericUpDown.Value = vendedor.Restecionp;
+            FechadateTimePicker.Value = vendedor.FechaVendedor;
         }
 
 
@@ -59,7 +62,7 @@ namespace Primer_Parcial.UI
         {
             errorProvider.Clear();
             bool paso = true;
-            
+          
             if (RetecnumericUpDown.Value <= 0)
             {
                 errorProvider.SetError(RetecnumericUpDown, "Ingre Porciento retencion");
@@ -87,12 +90,14 @@ namespace Primer_Parcial.UI
             Vendedor vendedor = VendedorBLL.Buscar((int)IDnumericUpDown.Value);
             return (vendedor != null);
         }
+
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             errorProvider.Clear();
             int id;
             Vendedor vendedor = new Vendedor();
             int.TryParse(IDnumericUpDown.Text, out id);
+            vendedor = VendedorBLL.Buscar(id);
 
             if (vendedor != null)
             {
@@ -103,6 +108,7 @@ namespace Primer_Parcial.UI
             else
             {
                 MessageBox.Show("No se encontro");
+                Limpiar();
             }
         }
 
@@ -119,14 +125,14 @@ namespace Primer_Parcial.UI
             {
                 if (!ExisteEnLaBaseDeDatos())
                 {
-                    MessageBox.Show("No se puede  modificar un campo que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se puede  modificar un campo que no exite", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 paso = VendedorBLL.Modificar(vendedor);
             }
             if (paso)
             {
-                MessageBox.Show("Guardado con Existo");
+                MessageBox.Show("Guardado con Exito");
                 Limpiar();
             }
             else
@@ -160,14 +166,29 @@ namespace Primer_Parcial.UI
             RetecnumericUpDown.Value = reticion;
 
         }
-
+        
         private void RetencionnumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             decimal sueldo = Convert.ToDecimal(SueldonumericUpDown.Value);
             decimal Porciento = Convert.ToDecimal(RetencionnumericUpDown.Value);
             Porciento /= 100;
             decimal reticion = sueldo * Porciento;
-            SueldonumericUpDown.Value = reticion;
+            RetecnumericUpDown.Value = reticion;
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RetecnumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FechadateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
 
         }
     }

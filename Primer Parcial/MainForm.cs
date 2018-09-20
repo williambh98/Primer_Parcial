@@ -21,8 +21,17 @@ namespace Primer_Parcial
         private void registroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Registrosparcial rg = new Registrosparcial();
+            rg.MdiParent = this;
             rg.Show();
 
+
+        }
+
+        private void vEntaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Consultaparcial cs = new Consultaparcial();
+            cs.MdiParent = this;
+            cs.Show();
         }
     }
 }
