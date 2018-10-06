@@ -23,7 +23,7 @@ namespace Primer_Parcial.UI
         {
             
             var listado = new List<Vendedor>();
-            if((CristeriotextBox.Text.Trim().Length > 0))
+            if(CristeriotextBox.Text.Trim().Length > 0)
                 {
                 switch (FiltrocomboBox.SelectedIndex)
                 {
@@ -61,7 +61,7 @@ namespace Primer_Parcial.UI
             ConsultaDataGridView.DataSource = listado;
         }
 
-        /*
+    
         public void sololetras(KeyPressEventArgs e)
         {
             try
@@ -78,7 +78,7 @@ namespace Primer_Parcial.UI
                 {
                     e.Handled = true;
                 }
-            }catch(Exception ex)
+            }catch(Exception )
             {
                 throw;
             }
@@ -100,12 +100,15 @@ namespace Primer_Parcial.UI
                     e.Handled = true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 throw;
             }
         }
-        */
 
+        private void FiltrocomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

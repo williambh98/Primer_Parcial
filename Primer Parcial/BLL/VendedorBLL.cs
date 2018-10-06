@@ -8,6 +8,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Primer_Parcial.BLL
 {
    public class VendedorBLL
@@ -61,7 +62,7 @@ namespace Primer_Parcial.BLL
             {
 
                 var eliminar = contexto.vendedorbl.Find(id);
-                contexto.Entry(eliminar).State = System.Data.Entity.EntityState.Deleted;
+               contexto.Entry(eliminar).State = EntityState.Deleted;
                 paso = (contexto.SaveChanges() > 0);
                 contexto.Dispose();
             }catch(Exception)

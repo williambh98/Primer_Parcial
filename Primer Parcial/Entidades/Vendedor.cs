@@ -17,7 +17,7 @@ namespace Primer_Parcial.Entidades
         public decimal Sueldo { get; set; }
         public string Nombre { get; set; }
         public DateTime FechaVendedor { get; set; }
-      
+        public object State { get; internal set; }
 
         public Vendedor()
         {

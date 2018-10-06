@@ -95,6 +95,7 @@
             this.FiltrocomboBox.Name = "FiltrocomboBox";
             this.FiltrocomboBox.Size = new System.Drawing.Size(199, 24);
             this.FiltrocomboBox.TabIndex = 4;
+            this.FiltrocomboBox.SelectedIndexChanged += new System.EventHandler(this.FiltrocomboBox_SelectedIndexChanged);
             // 
             // CristeriotextBox
             // 
@@ -102,7 +103,6 @@
             this.CristeriotextBox.Name = "CristeriotextBox";
             this.CristeriotextBox.Size = new System.Drawing.Size(175, 22);
             this.CristeriotextBox.TabIndex = 5;
-           
             // 
             // DesdedateTimePicker
             // 
